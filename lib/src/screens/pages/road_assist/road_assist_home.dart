@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_3/src/components/custom_tile_two.dart';
 import 'package:flutter_application_3/src/screens/pages/home_page.dart';
+import 'package:flutter_application_3/src/screens/pages/road_assist/dead_battery_page.dart';
 
 class RoadAssistHome extends StatelessWidget {
   const RoadAssistHome({super.key}); // Constructor declaration
@@ -16,7 +17,7 @@ class RoadAssistHome extends StatelessWidget {
       // Navigate back to the HomePage and remove all routes from the stack
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => const HomePage()),
         (route) => false, // This will remove all routes from the stack
       );
     }
@@ -67,7 +68,11 @@ class RoadAssistHome extends StatelessWidget {
                   imagePath: 'assets/images/dead_battery.png', // Tile image path
                   color: Colors.white, // Tile color
                   onTap: () {
-                    // Implement your Car Management functionality here
+                    // Navigate to the RoadAssistancePage
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DeadBatteryPage()),
+                    );
                   },
                 ),
 
